@@ -1,0 +1,18 @@
+
+.form-container {
+  max-width: 300px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  .form-field {
+    width: 80%;
+    ::ng-deep.mat-form-field-flex {
+      background-color: unset !important;
+    }
+  }
+
+  .form-button {
+    width: 15%;
+  }
+}

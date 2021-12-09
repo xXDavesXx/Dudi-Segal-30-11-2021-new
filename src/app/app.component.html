@@ -1,0 +1,43 @@
+
+<div class="header" [ngClass]="{day: dayNightMode === 'day', night: dayNightMode === 'night'}">
+  <div class="header-left-side">
+    <span class="title">Weather App</span>
+    <nav class="navigation-buttons">
+      <button [disabled]="display === 'home'"
+              [ngClass]="{disabled: display === 'home',
+              day: dayNightMode === 'day', night: dayNightMode === 'night'}"
+              (click)="changeDisplayAndResendDataToFavorites('home')">  Home
+      </button>
+      <button [disabled]="display === 'favorite'"
+              [ngClass]="{disabled: display === 'favorite'}"
+              (click)="changeDisplayAndResendDataToFavorites('favorite')"> Favorites
+      </button>
+    </nav>
+  </div>
+
+  <div class="header-right-side">
+    <mat-slide-toggle class="toggleUnits"
+                      [color] = "color"
+                      (click)="changeTemperatureUnits()">{{displayUnits}}°
+    </mat-slide-toggle>
+    <div class="day-night-toggle"
+         [ngClass]="{day: dayNightMode === 'day', night: dayNightMode === 'night'}"
+         (click)="changeDayNightMode()">
+    </div>
+  </div>
+</div>
+
+<div class="body" [ngClass]="{day: dayNightMode === 'day', night: dayNightMode === 'night'}">
+  <app-main-weather-window *ngIf="display === 'home'; else favorite"
+                           [isMetric]="isMetric"
+                           [favoriteCity]="cityDisplayInMain"
+                           [dayNightMode]="dayNightMode"
+                           [favoriteListReq]="favoriteListReq">
+  </app-main-weather-window>
+  <ng-template #favorite>
+    <app-favorite-weather-locations (favoriteCity)="goToMainDisplayWithFavorite($event)"
+                                    [dayNightMode]="dayNightMode">
+    </app-favorite-weather-locations>
+  </ng-template>
+</div>
+

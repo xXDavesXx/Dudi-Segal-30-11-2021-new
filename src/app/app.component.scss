@@ -1,0 +1,117 @@
+@import './src/style-parms';
+
+@mixin hover {
+  &.day {
+    &:hover {
+      box-shadow: .1rem .1rem 0.8rem .5rem $day-shadow-color;
+    }
+  }
+
+  &.night {
+    &:hover {
+      box-shadow: .1rem .1rem 0.8rem .5rem $night-shadow-color;
+    }
+  }
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 6rem;
+
+  &.day {
+    background-color: $day-header-color;
+  }
+
+  &.night {
+    background-color: $night-header-color;
+  }
+
+  .header-left-side {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 35rem;
+    padding: 0 1.5rem;
+
+    .title {
+      color: white;
+      font-size: 3rem;
+    }
+
+    .navigation-buttons {
+      color: black;
+      font-size: 1.5rem;
+      height: 65%;
+
+      button {
+        margin-inline: 1rem;
+        padding: 0 .5rem;
+        border-radius: 20%;
+        height: 100%;
+
+        @include hover;
+
+        &.disabled {
+         color: white;
+        }
+      }
+    }
+  }
+
+  .header-right-side {
+    width: 15rem;
+    margin-right: 3rem;
+    display: flex;
+    flex-direction: row;
+    align-self: center;
+    justify-content: space-between;
+
+    .toggleUnits {
+      color: black;
+      font-size: 1.5rem;
+      height: 65%;
+      margin-right: 5rem;
+      align-self: center;
+
+      button {
+        margin-inline: 1rem;
+        padding: 0 .5rem;
+        border-radius: 20%;
+        height: 100%;
+
+        @include hover;
+      }
+    }
+
+    .day-night-toggle {
+      width: 3rem;
+      height: 3rem;
+
+      &.day {
+        background: url("./../assets/icons/general/sun.png");
+        background-size: 3rem;
+      }
+
+      &.night {
+        background: url("./../assets/icons/general/night.png");
+        background-size: 3rem;
+      }
+    }
+  }
+
+
+}
+
+.body {
+  height: 100%;
+
+  &.day {
+    background-color: $day-body-color;
+  }
+
+  &.night {
+    background-color: $night-body-color;
+  }
+}

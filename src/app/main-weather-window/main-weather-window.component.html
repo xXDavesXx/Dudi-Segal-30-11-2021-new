@@ -1,0 +1,42 @@
+
+<div class="container">
+
+  <div class="input-line">
+    <app-city-search-input (selectedCity)="getForecastInformation($event)"
+                           [dayNightMode]="mode">
+    </app-city-search-input>
+  </div>
+
+  <div class="city-weather-display-container" *ngIf="cityOnDisplay !== ''"
+       [ngClass]="{day: mode === 'day', night: mode === 'night'}">
+    <div class="top-area">
+
+      <div class="current-weather-status" *ngIf="forecastData">
+        <div class="weather-icon">
+          <img src="./assets/icons/weather-icons/{{forecastData.days[0].dayData.icon}}.png">
+        </div>
+        <div class="weather-info">
+          <span>{{cityOnDisplay}}</span>
+          <span>{{forecastData.days[0].dayData.temperature.temperatureValue}}°{{forecastData.days[0].dayData.temperature.units}}</span>
+        </div>
+      </div>
+
+      <div class="control">
+        <div class="icon" [ngClass]="{'isFavorite': isSelectedCityFavorite}"></div>
+        <div class="add-remove-favorite"
+             [ngClass]="{day: mode === 'day', night: mode === 'night'}"
+             (click)="changeFavoriteStatus()">{{isAddFavorite}} Favorite
+        </div>
+      </div>
+    </div>
+
+    <div class="weather-phrase" *ngIf="forecastData">{{forecastData.days[0].dayData.iconPhrase}}</div>
+
+    <div class="bottom-area">
+      <app-week-forecast [forecastData]="forecastData"
+                         [dayNightMode]="mode">
+      </app-week-forecast>
+    </div>
+
+  </div>
+</div>

@@ -1,0 +1,57 @@
+@import "./../../../style-parms";
+
+.box-container {
+  width: 13rem;
+  height: 15rem;
+  border-radius: 3%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  text-align: center;
+
+  &.day {
+    border: .1rem solid $day-border-color;
+  }
+
+  &.night {
+    border: .1rem solid $night-border-color;
+  }
+
+  .date {
+    width: 95%;
+    height: fit-content;
+  }
+
+  .weatherIcons {
+    width: 90%;
+    height: fit-content;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+    .dayIcon .nightIcon{
+      img {
+        width: 2.5rem;
+        height: 2.5rem;
+      }
+    }
+  }
+
+  .temperatureDisplay {
+    width: 90%;
+    height: fit-content;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+    .maximum .minimum{
+      width: 2rem;
+      height: 2rem;
+    }
+  }
+}
+
+img {
+  width: 6.2rem;
+  height: 3.7rem;
+}

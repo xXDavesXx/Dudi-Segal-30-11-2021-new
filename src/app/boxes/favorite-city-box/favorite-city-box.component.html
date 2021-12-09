@@ -1,0 +1,6 @@
+
+<div class="favorite-city-container" [ngClass]="{day: mode === 'day', night: mode === 'night'}">
+  <div class="city-name">{{cityName}}</div>
+  <div class="current-temp">{{favoriteCity.dayData.temperature.temperatureValue}}°{{favoriteCity.dayData.temperature.units}}</div>
+  <div class="description">{{favoriteCity.dayData.iconPhrase}}</div>
+</div>

@@ -1,0 +1,13 @@
+<div class="box-container" *ngIf="oneDayDisplay"
+     [ngClass]="{day: mode === 'day', night: mode === 'night'}">
+  <div class="date">{{oneDayDisplay.date}}</div>
+  <div class="weatherIcons">
+    <div class="dayIcon"><img src="assets/icons/weather-icons/{{oneDayDisplay.dayData.icon}}.png"></div>
+    <h2>/</h2>
+    <div class="nightIcon"><img src="assets/icons/weather-icons/{{oneDayDisplay.nightData.icon}}.png"></div>
+  </div>
+  <div class="temperatureDisplay">
+    <div class="maximum">{{oneDayDisplay.dayData.temperature.temperatureValue}}°{{oneDayDisplay.dayData.temperature.units}}</div>
+    <div class="minimum">{{oneDayDisplay.nightData.temperature.temperatureValue}}°{{oneDayDisplay.nightData.temperature.units}}</div>
+  </div>
+</div>

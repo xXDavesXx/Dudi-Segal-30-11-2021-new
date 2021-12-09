@@ -1,0 +1,9 @@
+<div class="favorites-box-container">
+  <div *ngFor="let favorite of (favoriteCities$ | async)">
+      <app-favorite-city-box [cityName]="favorite.cityName"
+                             [favoriteCitiesDayData]="favorite.days[0]"
+                             [dayNightMode] ='mode'
+                             (click)="returnAndDisplayFavorite(favorite.cityName)">
+      </app-favorite-city-box>
+  </div>
+</div>

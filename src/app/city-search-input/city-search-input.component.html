@@ -1,0 +1,26 @@
+
+<form class="form-container" [formGroup]="searchForm" (ngSubmit)="sendCityReq()">
+  <mat-form-field class="form-field" appearance="fill">
+    <mat-label>Pick a city</mat-label>
+    <input type="text"
+           placeholder="Pick one"
+           aria-label="Number"
+           matInput
+           formControlName="cityName"
+           [matAutocomplete]="auto">
+<!--           (keypress)="preventNonEnglishLetters($event)">-->
+    <mat-autocomplete #auto="matAutocomplete">
+      <mat-option *ngFor="let city of filteredOptions$ | async" [value]="city">
+        {{city}}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+
+  <button mat-icon-button
+          class="form-button"
+          type="submit"
+          style="background-color: unset">
+    <mat-icon style="color: cadetblue">add_location</mat-icon>
+  </button>
+
+</form>

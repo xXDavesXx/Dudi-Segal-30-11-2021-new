@@ -1,0 +1,7 @@
+
+<div class="week-forecast-container">
+  <div *ngFor="let forecast of newForeCastData ">
+    <app-daily-weather-box [forecast]="forecast"
+                           [dayNightMode]="mode">
+    </app-daily-weather-box>
+</div>
